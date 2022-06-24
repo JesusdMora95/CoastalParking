@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{337D022A-5C4D-4BC3-ADB1-DC5CE935FA25}</ProjectGuid>
+    <ProjectGuid>{C6F6820B-7F14-4AB6-8DFA-4C60AC2A7845}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BLL</RootNamespace>
-    <AssemblyName>BLL</AssemblyName>
+    <RootNamespace>Infraesctructura</RootNamespace>
+    <AssemblyName>Infraesctructura</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -31,6 +31,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.3, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.3\lib\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -41,24 +47,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="TarifaService.cs" />
+    <Compile Include="DocumentoPdf.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TiquetParticularService.cs" />
-    <Compile Include="VehiculoService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DAL\DAL.csproj">
-      <Project>{70a40d60-51b4-4851-b7db-36b377252b6a}</Project>
-      <Name>DAL</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ENTITY\ENTITY.csproj">
       <Project>{7dea7696-3a5b-435b-8c3f-d0c837a3e3b3}</Project>
       <Name>ENTITY</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Infraesctructura\Infraesctructura.csproj">
-      <Project>{c6f6820b-7f14-4ab6-8dfa-4c60ac2a7845}</Project>
-      <Name>Infraesctructura</Name>
-    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
