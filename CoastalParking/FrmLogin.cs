@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 
@@ -28,22 +21,20 @@ namespace CoastalParking
             if (txtUser.Text.Equals("admin") && txtPass.Text.Equals("123"))
             {
                 FrmAdministrador frmAdministrador = new FrmAdministrador();
-                frmAdministrador.Show();
+                frmAdministrador.Visible = true;
+                this.Visible = false;
             }
             else 
             {
                 MessageBox.Show("Usuario o contraseña no valido");
             }
-
             limpiar();
         }
 
         private void limpiar()
         {
-
             txtUser.Text = "";
             txtPass.Text = "";
-
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
@@ -53,7 +44,12 @@ namespace CoastalParking
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            if (MessageBox.Show("Esta seguro de cerrar la aplicacion?", "Warning",
+               MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+            
         }
 
         private void BarraFrontal_MouseDown(object sender, MouseEventArgs e)

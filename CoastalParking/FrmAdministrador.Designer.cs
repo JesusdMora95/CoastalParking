@@ -320,6 +320,7 @@ namespace CoastalParking
             this.Controls.Add(this.BarraTitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmAdministrador";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmAdministrador";
             this.PanelBotones.ResumeLayout(false);
             this.panel2.ResumeLayout(false);

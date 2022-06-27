@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -46,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConfigConnectionString.cs" />
     <Compile Include="FrmConsultarHistorial.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -57,6 +59,12 @@
     </Compile>
     <Compile Include="FrmConsultarHistorialTicket.Designer.cs">
       <DependentUpon>FrmConsultarHistorialTicket.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmHistorialTarifa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmHistorialTarifa.Designer.cs">
+      <DependentUpon>FrmHistorialTarifa.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
@@ -102,6 +110,9 @@
     <EmbeddedResource Include="FrmConsultarHistorialTicket.resx">
       <DependentUpon>FrmConsultarHistorialTicket.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmHistorialTarifa.resx">
+      <DependentUpon>FrmHistorialTarifa.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -141,6 +152,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{337d022a-5c4d-4bc3-adb1-dc5ce935fa25}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ENTITY\ENTITY.csproj">
+      <Project>{7dea7696-3a5b-435b-8c3f-d0c837a3e3b3}</Project>
+      <Name>ENTITY</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

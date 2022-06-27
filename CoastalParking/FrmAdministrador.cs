@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 
@@ -17,7 +10,6 @@ namespace CoastalParking
         {
             InitializeComponent();
         }
-
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
@@ -35,7 +27,6 @@ namespace CoastalParking
             this.PanelContenedor.Controls.Add(fF);
             this.PanelContenedor.Tag = fF;
             fF.Show();
-
         }
 
         private void Restaurar_Click(object sender, EventArgs e)
@@ -52,9 +43,13 @@ namespace CoastalParking
 
         private void Cerrar_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            FrmLogin frmLogin = new FrmLogin();
-            frmLogin.Close();
+            FrmLogin login = new FrmLogin();
+            if (MessageBox.Show("Esta seguro de cerrar sesion?", "Warning",
+               MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                this.Dispose();
+                login.ShowDialog();
+            }
         }
 
         private void Maximizar_Click(object sender, EventArgs e)
