@@ -41,6 +41,25 @@ namespace BLL
             }
         }
 
+        public string Modificar(TiquetParticular tiquetParticular)
+        {
+            try
+            {
+                connectionManager.Open();
+                    tiquetParticularRepository.Modificar(tiquetParticular);
+                    return "Datos Guardados Satisfactoriamente";
+
+            }
+            catch (Exception exception)
+            {
+
+                return "Se presentó el siguiente error:" + exception.Message;
+            }
+            finally
+            {
+                connectionManager.Close();
+            }
+        }
 
         public ConsultaResponse Consultar()
         {
@@ -80,26 +99,12 @@ namespace BLL
 
         }
 
-        public BusquedaReponse BuscarCodigo()
+        public int TotalElemtos()
         {
-            BusquedaReponse busquedaReponse;
             try
             {
                 connectionManager.Open();
-                busquedaReponse = new BusquedaReponse(tiquetParticularRepository.BuscarCodigo());
-                if (busquedaReponse.Error)
-                {
-
-                    return busquedaReponse = new BusquedaReponse("No");
-                }
-                else
-                {
-                    return busquedaReponse;
-                }
-            }
-            catch (Exception exception)
-            {
-                return busquedaReponse = new BusquedaReponse("Se presentó el siguiente error:" + exception.Message);
+                return tiquetParticularRepository.TotalRegistros() + 1;
             }
             finally
             {

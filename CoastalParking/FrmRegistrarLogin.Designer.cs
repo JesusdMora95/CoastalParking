@@ -80,7 +80,7 @@ namespace CoastalParking
             this.txtUsuario.Font = new System.Drawing.Font("Ebrima", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsuario.ForeColor = System.Drawing.Color.Black;
             this.txtUsuario.Location = new System.Drawing.Point(286, 286);
-            this.txtUsuario.MaxLength = 10;
+            this.txtUsuario.MaxLength = 8;
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(161, 22);
             this.txtUsuario.TabIndex = 468;
@@ -183,7 +183,7 @@ namespace CoastalParking
             this.txtContraseña.Font = new System.Drawing.Font("Ebrima", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtContraseña.ForeColor = System.Drawing.Color.Black;
             this.txtContraseña.Location = new System.Drawing.Point(285, 329);
-            this.txtContraseña.MaxLength = 10;
+            this.txtContraseña.MaxLength = 8;
             this.txtContraseña.Name = "txtContraseña";
             this.txtContraseña.Size = new System.Drawing.Size(162, 22);
             this.txtContraseña.TabIndex = 477;

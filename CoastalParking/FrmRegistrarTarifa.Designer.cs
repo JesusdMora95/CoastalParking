@@ -29,6 +29,7 @@ namespace CoastalParking
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRegistrarTarifa));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -37,22 +38,24 @@ namespace CoastalParking
             this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.txtTipoVehiculo = new System.Windows.Forms.TextBox();
+            this.txtNombreVehiculo = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.txtTarifaMinima = new System.Windows.Forms.TextBox();
+            this.txtValorTarifaMinima = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.labelConsultar = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtConsulta = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.txtValorTarifa = new System.Windows.Forms.TextBox();
+            this.txtValorTarifaExtra = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -64,18 +67,18 @@ namespace CoastalParking
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.panel4);
-            this.panel1.Controls.Add(this.txtTipoVehiculo);
+            this.panel1.Controls.Add(this.txtNombreVehiculo);
             this.panel1.Controls.Add(this.panel3);
-            this.panel1.Controls.Add(this.txtTarifaMinima);
+            this.panel1.Controls.Add(this.txtValorTarifaMinima);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.label8);
+            this.panel1.Controls.Add(this.labelConsultar);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.panel6);
-            this.panel1.Controls.Add(this.textBox4);
+            this.panel1.Controls.Add(this.txtConsulta);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.panel2);
-            this.panel1.Controls.Add(this.txtValorTarifa);
+            this.panel1.Controls.Add(this.txtValorTarifaExtra);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -86,7 +89,7 @@ namespace CoastalParking
             // 
             // panel5
             // 
-            this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(96)))), ((int)(((byte)(130)))));
             this.panel5.Location = new System.Drawing.Point(268, 403);
@@ -96,7 +99,7 @@ namespace CoastalParking
             // 
             // txtTiempoMinimo
             // 
-            this.txtTiempoMinimo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txtTiempoMinimo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTiempoMinimo.BackColor = System.Drawing.Color.White;
             this.txtTiempoMinimo.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -125,6 +128,7 @@ namespace CoastalParking
             this.button5.TabIndex = 466;
             this.button5.Text = "   Guardar";
             this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click_1);
             // 
             // button1
             // 
@@ -143,10 +147,11 @@ namespace CoastalParking
             this.button1.TabIndex = 465;
             this.button1.Text = "    Cancelar";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // label2
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Ebrima", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -159,7 +164,7 @@ namespace CoastalParking
             // 
             // panel4
             // 
-            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(96)))), ((int)(((byte)(130)))));
             this.panel4.Location = new System.Drawing.Point(268, 268);
@@ -167,23 +172,23 @@ namespace CoastalParking
             this.panel4.Size = new System.Drawing.Size(164, 2);
             this.panel4.TabIndex = 364;
             // 
-            // txtTipoVehiculo
+            // txtNombreVehiculo
             // 
-            this.txtTipoVehiculo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txtNombreVehiculo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTipoVehiculo.BackColor = System.Drawing.Color.White;
-            this.txtTipoVehiculo.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtTipoVehiculo.Font = new System.Drawing.Font("Ebrima", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTipoVehiculo.ForeColor = System.Drawing.Color.Black;
-            this.txtTipoVehiculo.Location = new System.Drawing.Point(268, 248);
-            this.txtTipoVehiculo.MaxLength = 10;
-            this.txtTipoVehiculo.Name = "txtTipoVehiculo";
-            this.txtTipoVehiculo.Size = new System.Drawing.Size(177, 22);
-            this.txtTipoVehiculo.TabIndex = 363;
+            this.txtNombreVehiculo.BackColor = System.Drawing.Color.White;
+            this.txtNombreVehiculo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtNombreVehiculo.Font = new System.Drawing.Font("Ebrima", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombreVehiculo.ForeColor = System.Drawing.Color.Black;
+            this.txtNombreVehiculo.Location = new System.Drawing.Point(268, 248);
+            this.txtNombreVehiculo.MaxLength = 10;
+            this.txtNombreVehiculo.Name = "txtNombreVehiculo";
+            this.txtNombreVehiculo.Size = new System.Drawing.Size(177, 22);
+            this.txtNombreVehiculo.TabIndex = 363;
             // 
             // panel3
             // 
-            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(96)))), ((int)(((byte)(130)))));
             this.panel3.Location = new System.Drawing.Point(268, 311);
@@ -191,23 +196,23 @@ namespace CoastalParking
             this.panel3.Size = new System.Drawing.Size(164, 2);
             this.panel3.TabIndex = 361;
             // 
-            // txtTarifaMinima
+            // txtValorTarifaMinima
             // 
-            this.txtTarifaMinima.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txtValorTarifaMinima.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTarifaMinima.BackColor = System.Drawing.Color.White;
-            this.txtTarifaMinima.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtTarifaMinima.Font = new System.Drawing.Font("Ebrima", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTarifaMinima.ForeColor = System.Drawing.Color.Black;
-            this.txtTarifaMinima.Location = new System.Drawing.Point(268, 291);
-            this.txtTarifaMinima.MaxLength = 10;
-            this.txtTarifaMinima.Name = "txtTarifaMinima";
-            this.txtTarifaMinima.Size = new System.Drawing.Size(163, 22);
-            this.txtTarifaMinima.TabIndex = 360;
+            this.txtValorTarifaMinima.BackColor = System.Drawing.Color.White;
+            this.txtValorTarifaMinima.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtValorTarifaMinima.Font = new System.Drawing.Font("Ebrima", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtValorTarifaMinima.ForeColor = System.Drawing.Color.Black;
+            this.txtValorTarifaMinima.Location = new System.Drawing.Point(268, 291);
+            this.txtValorTarifaMinima.MaxLength = 10;
+            this.txtValorTarifaMinima.Name = "txtValorTarifaMinima";
+            this.txtValorTarifaMinima.Size = new System.Drawing.Size(163, 22);
+            this.txtValorTarifaMinima.TabIndex = 360;
             // 
             // label1
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Ebrima", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -218,19 +223,20 @@ namespace CoastalParking
             this.label1.TabIndex = 362;
             this.label1.Text = "Valor tarifa minima";
             // 
-            // label8
+            // labelConsultar
             // 
-            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Ebrima", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Image = ((System.Drawing.Image)(resources.GetObject("label8.Image")));
-            this.label8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label8.Location = new System.Drawing.Point(617, 174);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(84, 21);
-            this.label8.TabIndex = 359;
-            this.label8.Text = "       Buscar";
+            this.labelConsultar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelConsultar.AutoSize = true;
+            this.labelConsultar.Font = new System.Drawing.Font("Ebrima", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelConsultar.ForeColor = System.Drawing.Color.Black;
+            this.labelConsultar.Image = ((System.Drawing.Image)(resources.GetObject("labelConsultar.Image")));
+            this.labelConsultar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.labelConsultar.Location = new System.Drawing.Point(617, 174);
+            this.labelConsultar.Name = "labelConsultar";
+            this.labelConsultar.Size = new System.Drawing.Size(84, 21);
+            this.labelConsultar.TabIndex = 359;
+            this.labelConsultar.Text = "       Buscar";
+            this.labelConsultar.Click += new System.EventHandler(this.labelConsultar_Click);
             // 
             // label6
             // 
@@ -254,10 +260,11 @@ namespace CoastalParking
             this.pictureBox2.Size = new System.Drawing.Size(51, 51);
             this.pictureBox2.TabIndex = 356;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click_1);
             // 
             // panel6
             // 
-            this.panel6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.panel6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(96)))), ((int)(((byte)(130)))));
             this.panel6.Location = new System.Drawing.Point(40, 193);
@@ -265,23 +272,23 @@ namespace CoastalParking
             this.panel6.Size = new System.Drawing.Size(544, 2);
             this.panel6.TabIndex = 355;
             // 
-            // textBox4
+            // txtConsulta
             // 
-            this.textBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txtConsulta.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox4.BackColor = System.Drawing.Color.White;
-            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox4.Font = new System.Drawing.Font("Ebrima", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.ForeColor = System.Drawing.Color.Black;
-            this.textBox4.Location = new System.Drawing.Point(40, 173);
-            this.textBox4.MaxLength = 10;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(543, 22);
-            this.textBox4.TabIndex = 354;
+            this.txtConsulta.BackColor = System.Drawing.Color.White;
+            this.txtConsulta.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtConsulta.Font = new System.Drawing.Font("Ebrima", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtConsulta.ForeColor = System.Drawing.Color.Black;
+            this.txtConsulta.Location = new System.Drawing.Point(40, 173);
+            this.txtConsulta.MaxLength = 10;
+            this.txtConsulta.Name = "txtConsulta";
+            this.txtConsulta.Size = new System.Drawing.Size(543, 22);
+            this.txtConsulta.TabIndex = 354;
             // 
             // label4
             // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Ebrima", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -294,7 +301,7 @@ namespace CoastalParking
             // 
             // panel2
             // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(96)))), ((int)(((byte)(130)))));
             this.panel2.Location = new System.Drawing.Point(268, 360);
@@ -302,23 +309,23 @@ namespace CoastalParking
             this.panel2.Size = new System.Drawing.Size(164, 2);
             this.panel2.TabIndex = 331;
             // 
-            // txtValorTarifa
+            // txtValorTarifaExtra
             // 
-            this.txtValorTarifa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txtValorTarifaExtra.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtValorTarifa.BackColor = System.Drawing.Color.White;
-            this.txtValorTarifa.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtValorTarifa.Font = new System.Drawing.Font("Ebrima", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtValorTarifa.ForeColor = System.Drawing.Color.Black;
-            this.txtValorTarifa.Location = new System.Drawing.Point(268, 340);
-            this.txtValorTarifa.MaxLength = 10;
-            this.txtValorTarifa.Name = "txtValorTarifa";
-            this.txtValorTarifa.Size = new System.Drawing.Size(163, 22);
-            this.txtValorTarifa.TabIndex = 330;
+            this.txtValorTarifaExtra.BackColor = System.Drawing.Color.White;
+            this.txtValorTarifaExtra.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtValorTarifaExtra.Font = new System.Drawing.Font("Ebrima", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtValorTarifaExtra.ForeColor = System.Drawing.Color.Black;
+            this.txtValorTarifaExtra.Location = new System.Drawing.Point(268, 340);
+            this.txtValorTarifaExtra.MaxLength = 10;
+            this.txtValorTarifaExtra.Name = "txtValorTarifaExtra";
+            this.txtValorTarifaExtra.Size = new System.Drawing.Size(163, 22);
+            this.txtValorTarifaExtra.TabIndex = 330;
             // 
             // label3
             // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Ebrima", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -341,6 +348,10 @@ namespace CoastalParking
             this.label7.TabIndex = 327;
             this.label7.Text = "REGISTRAR TARIFA";
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // FrmRegistrarTarifa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -353,6 +364,7 @@ namespace CoastalParking
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -366,19 +378,20 @@ namespace CoastalParking
         internal System.Windows.Forms.Button button1;
         internal System.Windows.Forms.Label label2;
         internal System.Windows.Forms.Panel panel4;
-        internal System.Windows.Forms.TextBox txtTipoVehiculo;
+        internal System.Windows.Forms.TextBox txtNombreVehiculo;
         internal System.Windows.Forms.Panel panel3;
-        internal System.Windows.Forms.TextBox txtTarifaMinima;
+        internal System.Windows.Forms.TextBox txtValorTarifaMinima;
         internal System.Windows.Forms.Label label1;
-        internal System.Windows.Forms.Label label8;
+        internal System.Windows.Forms.Label labelConsultar;
         internal System.Windows.Forms.Label label6;
         private System.Windows.Forms.PictureBox pictureBox2;
         internal System.Windows.Forms.Panel panel6;
-        internal System.Windows.Forms.TextBox textBox4;
+        internal System.Windows.Forms.TextBox txtConsulta;
         internal System.Windows.Forms.Label label4;
         internal System.Windows.Forms.Panel panel2;
-        internal System.Windows.Forms.TextBox txtValorTarifa;
+        internal System.Windows.Forms.TextBox txtValorTarifaExtra;
         internal System.Windows.Forms.Label label3;
         internal System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

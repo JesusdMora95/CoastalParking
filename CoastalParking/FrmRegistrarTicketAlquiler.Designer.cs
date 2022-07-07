@@ -29,9 +29,10 @@ namespace CoastalParking
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRegistrarTicketAlquiler));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboNumeroEspacio = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.txtMarca = new System.Windows.Forms.TextBox();
@@ -41,9 +42,9 @@ namespace CoastalParking
             this.panel4 = new System.Windows.Forms.Panel();
             this.txtModelo = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.brGuardar = new System.Windows.Forms.Button();
+            this.btCancelar = new System.Windows.Forms.Button();
+            this.btModificar = new System.Windows.Forms.Button();
             this.CombNumeroPiso = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -51,13 +52,15 @@ namespace CoastalParking
             this.panel3 = new System.Windows.Forms.Panel();
             this.txtPlaca = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.comboBox1);
+            this.panel1.Controls.Add(this.comboNumeroEspacio);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.panel5);
             this.panel1.Controls.Add(this.txtMarca);
@@ -67,9 +70,9 @@ namespace CoastalParking
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.txtModelo);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.button5);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.button6);
+            this.panel1.Controls.Add(this.brGuardar);
+            this.panel1.Controls.Add(this.btCancelar);
+            this.panel1.Controls.Add(this.btModificar);
             this.panel1.Controls.Add(this.CombNumeroPiso);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
@@ -82,23 +85,18 @@ namespace CoastalParking
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(845, 571);
             this.panel1.TabIndex = 2;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // comboBox1
+            // comboNumeroEspacio
             // 
-            this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.comboNumeroEspacio.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5"});
-            this.comboBox1.Location = new System.Drawing.Point(381, 365);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(117, 21);
-            this.comboBox1.TabIndex = 476;
-            this.comboBox1.Text = "SELECCIONA";
+            this.comboNumeroEspacio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboNumeroEspacio.FormattingEnabled = true;
+            this.comboNumeroEspacio.Location = new System.Drawing.Point(381, 365);
+            this.comboNumeroEspacio.Name = "comboNumeroEspacio";
+            this.comboNumeroEspacio.Size = new System.Drawing.Size(117, 21);
+            this.comboNumeroEspacio.TabIndex = 476;
             // 
             // label8
             // 
@@ -114,6 +112,7 @@ namespace CoastalParking
             this.label8.Size = new System.Drawing.Size(84, 21);
             this.label8.TabIndex = 475;
             this.label8.Text = "       Buscar";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // panel5
             // 
@@ -156,18 +155,12 @@ namespace CoastalParking
             // 
             this.cmbTipoVehiculo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbTipoVehiculo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTipoVehiculo.FormattingEnabled = true;
-            this.cmbTipoVehiculo.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5"});
             this.cmbTipoVehiculo.Location = new System.Drawing.Point(381, 232);
             this.cmbTipoVehiculo.Name = "cmbTipoVehiculo";
             this.cmbTipoVehiculo.Size = new System.Drawing.Size(117, 21);
             this.cmbTipoVehiculo.TabIndex = 471;
-            this.cmbTipoVehiculo.Text = "SELECCIONA";
             // 
             // label5
             // 
@@ -219,64 +212,68 @@ namespace CoastalParking
             this.label2.TabIndex = 469;
             this.label2.Text = "Modelo";
             // 
-            // button5
+            // brGuardar
             // 
-            this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(72)))), ((int)(((byte)(128)))));
-            this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Ebrima", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
-            this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.Location = new System.Drawing.Point(630, 265);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(106, 35);
-            this.button5.TabIndex = 466;
-            this.button5.Text = "   Guardar";
-            this.button5.UseVisualStyleBackColor = false;
+            this.brGuardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.brGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(72)))), ((int)(((byte)(128)))));
+            this.brGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.brGuardar.FlatAppearance.BorderSize = 0;
+            this.brGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.brGuardar.Font = new System.Drawing.Font("Ebrima", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.brGuardar.ForeColor = System.Drawing.Color.White;
+            this.brGuardar.Image = ((System.Drawing.Image)(resources.GetObject("brGuardar.Image")));
+            this.brGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.brGuardar.Location = new System.Drawing.Point(630, 265);
+            this.brGuardar.Name = "brGuardar";
+            this.brGuardar.Size = new System.Drawing.Size(106, 35);
+            this.brGuardar.TabIndex = 466;
+            this.brGuardar.Text = "   Guardar";
+            this.brGuardar.UseVisualStyleBackColor = false;
+            this.brGuardar.Click += new System.EventHandler(this.brGuardar_Click);
             // 
-            // button1
+            // btCancelar
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(72)))), ((int)(((byte)(128)))));
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Ebrima", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(629, 347);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(106, 35);
-            this.button1.TabIndex = 465;
-            this.button1.Text = "    Cancelar";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(72)))), ((int)(((byte)(128)))));
+            this.btCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btCancelar.FlatAppearance.BorderSize = 0;
+            this.btCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btCancelar.Font = new System.Drawing.Font("Ebrima", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btCancelar.ForeColor = System.Drawing.Color.White;
+            this.btCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btCancelar.Image")));
+            this.btCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btCancelar.Location = new System.Drawing.Point(629, 347);
+            this.btCancelar.Name = "btCancelar";
+            this.btCancelar.Size = new System.Drawing.Size(106, 35);
+            this.btCancelar.TabIndex = 465;
+            this.btCancelar.Text = "    Cancelar";
+            this.btCancelar.UseVisualStyleBackColor = false;
+            this.btCancelar.Click += new System.EventHandler(this.btCancelar_Click);
             // 
-            // button6
+            // btModificar
             // 
-            this.button6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(72)))), ((int)(((byte)(128)))));
-            this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Font = new System.Drawing.Font("Ebrima", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.ForeColor = System.Drawing.Color.White;
-            this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
-            this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.Location = new System.Drawing.Point(630, 306);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(106, 35);
-            this.button6.TabIndex = 464;
-            this.button6.Text = "     Modificar";
-            this.button6.UseVisualStyleBackColor = false;
+            this.btModificar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btModificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(72)))), ((int)(((byte)(128)))));
+            this.btModificar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btModificar.FlatAppearance.BorderSize = 0;
+            this.btModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btModificar.Font = new System.Drawing.Font("Ebrima", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btModificar.ForeColor = System.Drawing.Color.White;
+            this.btModificar.Image = ((System.Drawing.Image)(resources.GetObject("btModificar.Image")));
+            this.btModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btModificar.Location = new System.Drawing.Point(630, 306);
+            this.btModificar.Name = "btModificar";
+            this.btModificar.Size = new System.Drawing.Size(106, 35);
+            this.btModificar.TabIndex = 464;
+            this.btModificar.Text = "     Modificar";
+            this.btModificar.UseVisualStyleBackColor = false;
+            this.btModificar.Click += new System.EventHandler(this.btModificar_Click);
             // 
             // CombNumeroPiso
             // 
             this.CombNumeroPiso.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.CombNumeroPiso.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CombNumeroPiso.Enabled = false;
             this.CombNumeroPiso.FormattingEnabled = true;
             this.CombNumeroPiso.Items.AddRange(new object[] {
@@ -289,7 +286,6 @@ namespace CoastalParking
             this.CombNumeroPiso.Name = "CombNumeroPiso";
             this.CombNumeroPiso.Size = new System.Drawing.Size(117, 21);
             this.CombNumeroPiso.TabIndex = 344;
-            this.CombNumeroPiso.Text = "SELECCIONA";
             // 
             // label4
             // 
@@ -366,6 +362,10 @@ namespace CoastalParking
             this.label7.TabIndex = 327;
             this.label7.Text = "REGISTRAR TIQUET";
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // FrmRegistrarTicketAlquiler
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -377,6 +377,7 @@ namespace CoastalParking
             this.Text = "FrmRegistrarTicketAlquiler";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -384,7 +385,7 @@ namespace CoastalParking
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboNumeroEspacio;
         internal System.Windows.Forms.Label label8;
         internal System.Windows.Forms.Panel panel5;
         internal System.Windows.Forms.TextBox txtMarca;
@@ -394,9 +395,9 @@ namespace CoastalParking
         internal System.Windows.Forms.Panel panel4;
         internal System.Windows.Forms.TextBox txtModelo;
         internal System.Windows.Forms.Label label2;
-        internal System.Windows.Forms.Button button5;
-        internal System.Windows.Forms.Button button1;
-        internal System.Windows.Forms.Button button6;
+        internal System.Windows.Forms.Button brGuardar;
+        internal System.Windows.Forms.Button btCancelar;
+        internal System.Windows.Forms.Button btModificar;
         private System.Windows.Forms.ComboBox CombNumeroPiso;
         internal System.Windows.Forms.Label label4;
         internal System.Windows.Forms.Label label3;
@@ -404,5 +405,6 @@ namespace CoastalParking
         internal System.Windows.Forms.Panel panel3;
         internal System.Windows.Forms.TextBox txtPlaca;
         internal System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

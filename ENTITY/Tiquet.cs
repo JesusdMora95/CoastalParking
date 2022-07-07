@@ -14,7 +14,6 @@ namespace Entity
         public int NumeroPiso { get; set; }
         public string Placa { get; set; }
         public string Tipo { get; set; }
-        public string CodigoConvenio { get; set; }
 
         public abstract void CalcularValorTiquet();
 

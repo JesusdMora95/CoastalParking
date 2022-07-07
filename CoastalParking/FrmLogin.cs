@@ -7,8 +7,8 @@ namespace CoastalParking
 {
     public partial class FrmLogin : Form
     {
-        public string dato = "admin";
-        public string dato1 = "verga";
+        public static string dato { get; set; }
+
         LoginService loginService;
         Validacion validacion = new Validacion();
         public FrmLogin()
@@ -29,6 +29,7 @@ namespace CoastalParking
                 {
                     if (txtUser.Text == login.Usuario && txtPass.Text == login.Contraseña)
                     {
+                        dato = login.Usuario;
                         FrmAdministrador frmAdministrador = new FrmAdministrador();
                         frmAdministrador.Visible = true;
                         this.Visible = false;
@@ -42,7 +43,7 @@ namespace CoastalParking
                     }
                 }
             }
-            limpiar();
+            //limpiar();
         }
 
         private void limpiar()

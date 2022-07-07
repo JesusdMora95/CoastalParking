@@ -12,7 +12,6 @@ namespace DAL
     {
 
         DbConnection _connection;
-        public Tarifa tarifa = new Tarifa();
         public TarifaRepository(DbConnection connection)
         {
             _connection = connection;
@@ -37,6 +36,7 @@ namespace DAL
 
         public List<Tarifa> Consultar()
         {
+            Tarifa tarifa = new Tarifa();
             List<Tarifa> tarifas = new List<Tarifa>();
             using (var command = _connection.CreateCommand())
             {
@@ -59,41 +59,17 @@ namespace DAL
             return tarifas;
         }
 
-        public Tarifa BuscarCodigo(string tipo)
+        public string ExistenciaVehiculo(string nombre)
         {
-            using (var command = _connection.CreateCommand())
+            string mesaje = "No Existe";
+            foreach(Tarifa tarifa in Consultar())
             {
-                command.CommandText = "select MAX(Fecha) from Tarifa where TipoVehiculo = @Tipo";
-                command.Parameters.Add(new SqlParameter("@Tipo", tipo));
-                var reader = command.ExecuteReader();
-                if (reader.HasRows)
+                if (tarifa.NombreTipodeVehiculo.Equals(nombre))
                 {
-                    while (reader.Read())
-                    {
-                        Tarifa tarifa = new Tarifa();
-                        tarifa.TipoVehiculo = Convert.ToInt32(reader["TipoVehiculo"]);
-                        return tarifa;
-                    }
+                    mesaje = "Si Existe El Vehiculo";
                 }
-                reader.Close();
             }
-            return null;
-        }
-
-        public void Modificar(Tarifa tarifa, string tipoVehiculo)
-        {
-            using (var command = _connection.CreateCommand())
-            {
-                command.CommandText = "update persona set TipoVehiculo=@TipoVehiculo, NombreTipodeVehiculo=@NombreTipodeVehiculo,Fecha=@Fecha, ValorMinimo=@ValorMinimo,ValorNormal=@ValorNormal,TiempoMinimo=@TiempoMinimo where TipoVehiculo=@TipoVehiculo";
-                command.Parameters.Add(new SqlParameter("@TipoVehiculo", tarifa.TipoVehiculo));
-                command.Parameters.Add(new SqlParameter("@NombreTipodeVehiculo", tarifa.NombreTipodeVehiculo));
-                command.Parameters.Add(new SqlParameter("@Fecha", tarifa.Fecha));
-                command.Parameters.Add(new SqlParameter("@ValorMinimo", tarifa.ValorMinimo));
-                command.Parameters.Add(new SqlParameter("@ValorNormal", tarifa.ValorNormal));
-                command.Parameters.Add(new SqlParameter("@TiempoMinimo", tarifa.TiempoMinimo));
-                int fila = command.ExecuteNonQuery();
-
-            }
+            return mesaje;
         }
 
         public Tarifa BuscarPorTipoVehiculo(string tipoVehiculo)
@@ -123,19 +99,14 @@ namespace DAL
             return null;
         }
 
-        public List<Tarifa> FiltrarPorTipoVehiculo(string tipo)
+        public List<Tarifa> FiltrarPorNombre(string nombre)
         {
-            return (from p in Consultar()
-                    where p.TipoVehiculo.Equals(tipo)
-                    orderby p.NombreTipodeVehiculo ascending
-                    select p).ToList();
+            return Consultar().Where(Tarifa => Tarifa.NombreTipodeVehiculo.Contains(nombre)).ToList();
         }
 
-        public List<Tarifa> FiltrarPorPalabraTipoVehiculo(string palabra)
+        public int TotalElementos()
         {
-            return (from p in Consultar()
-                    where p.NombreTipodeVehiculo.ToLower().Contains(palabra.ToLower())
-                    select p).ToList();
+            return Consultar().Count();
         }
 
     }

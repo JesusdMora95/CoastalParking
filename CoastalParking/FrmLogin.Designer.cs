@@ -121,6 +121,7 @@ namespace CoastalParking
             this.Label3.Size = new System.Drawing.Size(118, 19);
             this.Label3.TabIndex = 46;
             this.Label3.Text = "Forgot password?";
+            this.Label3.Visible = false;
             // 
             // btnLogin
             // 
@@ -160,7 +161,7 @@ namespace CoastalParking
             this.txtPass.Font = new System.Drawing.Font("Ebrima", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPass.ForeColor = System.Drawing.Color.Black;
             this.txtPass.Location = new System.Drawing.Point(61, 306);
-            this.txtPass.MaxLength = 10;
+            this.txtPass.MaxLength = 8;
             this.txtPass.Name = "txtPass";
             this.txtPass.Size = new System.Drawing.Size(350, 22);
             this.txtPass.TabIndex = 43;
@@ -187,7 +188,7 @@ namespace CoastalParking
             this.txtUser.Font = new System.Drawing.Font("Ebrima", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUser.ForeColor = System.Drawing.Color.Black;
             this.txtUser.Location = new System.Drawing.Point(61, 246);
-            this.txtUser.MaxLength = 10;
+            this.txtUser.MaxLength = 8;
             this.txtUser.Name = "txtUser";
             this.txtUser.Size = new System.Drawing.Size(350, 22);
             this.txtUser.TabIndex = 41;

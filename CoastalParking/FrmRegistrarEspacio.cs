@@ -14,18 +14,19 @@ namespace CoastalParking
 {
     public partial class FrmRegistrarEspacio : Form
     {
-        FrmLogin login = new FrmLogin();
         ParqueaderoService parqueaderoService;
+        EstacionamientoService estacionamientoService;
         public FrmRegistrarEspacio()
         {
             parqueaderoService = new ParqueaderoService(ConfigConnectionString.ConnectionString);
+            estacionamientoService = new EstacionamientoService(ConfigConnectionString.ConnectionString);
             InitializeComponent();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             int valor = parqueaderoService.ConsultarTotal();
-            if (login.dato.Equals("admin"))
+            if (FrmLogin.dato.Equals("admin"))
             {
                 MessageBox.Show(parqueaderoService.Modificar(ConstruirParqueadero().EspacioTotal, ConstruirParqueadero().EspacioDisponible, valor));
             }
@@ -38,6 +39,21 @@ namespace CoastalParking
         private void btGuardar_Click(object sender, EventArgs e)
         {
             MessageBox.Show(parqueaderoService.Guardar(ConstruirParqueadero().EspacioTotal, ConstruirParqueadero().EspacioDisponible));
+            GuardarEstacionamiento();
+        }
+
+        private void GuardarEstacionamiento()
+        {
+            for (int i = 1; i <= Convert.ToInt32(txtNumeroEspacio.Text); i++)
+            {
+                estacionamientoService.Guardar(CrearEstacionamiento(i));
+            }
+        }
+
+        private Estacionamiento CrearEstacionamiento(int valor)
+        {
+            Estacionamiento estacionamiento = new Estacionamiento(valor);
+            return estacionamiento;
         }
 
         private Parqueadero ConstruirParqueadero()

@@ -21,19 +21,26 @@ namespace CoastalParking
             ValidarRespuestadeConsulta(tarifaService.Consultar());
         }
 
-        private void button5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private ConsultaResponse SeleccionDeConsulta()
+        private void SeleccionDeConsulta()
         {
             string filtro = txtNombre.Text;
-            return tarifaService.ConsultarPorPalabraTipoVehiculo(filtro);
+            ValidarConsulta(tarifaService.ConsultarPorNombreVehiculo(filtro));
         }
 
 
         private void ValidarRespuestadeConsulta(ConsultaResponse respuetsa)
+        {
+            if (respuetsa.Error)
+            {
+                MessageBox.Show(respuetsa.Mensaje, "Consulta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                LlenarGrid(respuetsa.Tarifas);
+            }
+        }
+
+        private void ValidarConsulta(ConsultaResponse respuetsa)
         {
             if (respuetsa.Error)
             {
@@ -70,7 +77,8 @@ namespace CoastalParking
                 new Font(Tabla.Font, FontStyle.Bold);
         }
 
-        private void txtNombre_TextChanged(object sender, EventArgs e)
+
+        private void label2_Click(object sender, EventArgs e)
         {
             SeleccionDeConsulta();
         }

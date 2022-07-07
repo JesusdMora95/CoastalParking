@@ -31,7 +31,7 @@ namespace Entity
             int numeroOcupados = 0, numeroDesocupados = 0;
             foreach (var item in Estacionamientos)
             {
-                if (item.Estado == false)
+                if (item.Estado == "false")
                 {
                     numeroDesocupados = numeroDesocupados + 1;
                 }

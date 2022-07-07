@@ -9,111 +9,103 @@ namespace CoastalParking
     {
         static public VehiculoService vehiculoService;
         static public TiquetParticularService tiquetParticularService;
-        TarifaService tarifaService;
+        EstacionamientoService estacionamientoService;
+        TarifaService tarifa;
+        Validacion validacion = new Validacion();
         public FrmRegistrarTicketAlquiler()
         {
+            tarifa = new TarifaService(ConfigConnectionString.ConnectionString);
+            estacionamientoService = new EstacionamientoService(ConfigConnectionString.ConnectionString);
             InitializeComponent();
             vehiculoService = new VehiculoService(ConfigConnectionString.ConnectionString);
             tiquetParticularService = new TiquetParticularService(ConfigConnectionString.ConnectionString);
-            tarifaService = new TarifaService(ConfigConnectionString.ConnectionString);
+            LlenarTipoVehiculo();
+            LlenarNumeroEspacios();
+        }
+
+        private void brGuardar_Click(object sender, EventArgs e)
+        {
+            if(validacion.ValidarCampoVacio(this,errorProvider1) == false)
+            {
+                MessageBox.Show(tiquetParticularService.Guardar(CrearTiket()));
+            }
+        }
+
+        int bandera = 0;
+        private TiquetParticular CrearTiket()
+        {
+            TiquetParticular tiquet = new TiquetParticular();
+            tiquet.Codigo = Convert.ToString(tiquetParticularService.TotalElemtos());
+            tiquet.HoraEntrada = DateTime.Now;
+            tiquet.HoraSalida = DateTime.Now;
+            tiquet.EstadoTiquet = false;
+            tiquet.ValorExtra = 0;
+            tiquet.ValorTotal = 0;
+            tiquet.ValorMinimo = 0;
+            //tiquet.Tipo = cmbTipoVehiculo.Text;
+            tiquet.Placa = txtPlaca.Text;
+            foreach (Tarifa item in tarifa.ConsultarPorNombreVehiculo(cmbTipoVehiculo.Text).Tarifas)
+            {
+                tiquet.Tipo = Convert.ToString(item.TipoVehiculo);
+            }
+            tiquet.NumeroEspacio = Convert.ToInt32(comboNumeroEspacio.Text);
+            return tiquet;
+        }
+
+        private void btModificar_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(tiquetParticularService.Modificar(ModificarTiquet(CrearTiket())));
+        }
+
+        private TiquetParticular ModificarTiquet(TiquetParticular tiquet)
+        {
+            tiquet.Codigo = Convert.ToString(valor);
+            foreach(Tarifa item in tarifa.ConsultarPorNombreVehiculo(cmbTipoVehiculo.Text).Tarifas)
+            {
+                tiquet.NumeroEspacio = item.TipoVehiculo;
+            }
+            return tiquet;
+        }
+
+        private void LlenarTipoVehiculo()
+        {
+            foreach(Tarifa tarifa in tarifa.Consultar().Tarifas)
+            {
+                if (cmbTipoVehiculo.Items.Contains(tarifa.NombreTipodeVehiculo) == false)
+                {
+                    cmbTipoVehiculo.Items.Add(tarifa.NombreTipodeVehiculo);
+                }
+            }
+        }
+
+        private void LlenarNumeroEspacios()
+        {
+            foreach (Estacionamiento item in estacionamientoService.Consultar().estacionamientos)
+            {
+
+                    comboNumeroEspacio.Items.Add(item.NumeroEspacio);
+            }
+        }
+
+        int valor = 0;
+        private void label8_Click(object sender, EventArgs e)
+        {
+            TiquetParticular tiquet = new TiquetParticular();
+            valor = Convert.ToInt32(tiquet.Codigo);
+            tiquet = tiquetParticularService.Buscar(txtPlaca.Text).TiquetParticular;
+            txtPlaca.Text = tiquet.Placa;
+            cmbTipoVehiculo.Text = tiquet.Tipo;
+            comboNumeroEspacio.Text = Convert.ToString(tiquet.NumeroEspacio);
+        }
+
+        private void btCancelar_Click(object sender, EventArgs e)
+        {
+            validacion.LimpiarCajasDeTextoYComboBox(this);
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            if (vehiculoService.Buscar(txtPlaca.Text).Error)
-            {
-                Vehiculo vehiculo = MapearVehiculo();
-                string mensajeVehiculo = vehiculoService.Guardar(vehiculo);
-            }
-            else
-            {
-                if (vehiculoService.BuscaporPlaca(txtPlaca.Text).Equals("NO"))
-                {
-                    tarifaService.ConsultaUltimoTiquet(cmbTipoVehiculo.Text);
-                    TiquetParticular tiquetParticular = MapearTiquetParticular(tarifaService.ConsultaUltimoTiquet(cmbTipoVehiculo.Text).Tarifa);
-                    string mensaje = tiquetParticularService.Guardar(tiquetParticular);
-                    MessageBox.Show(mensaje, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
-        }
-
-        private TiquetParticular MapearTiquetParticular(Tarifa tarifa)
-        {
-            TiquetParticular tiquetParticular = new TiquetParticular();
-            tiquetParticular.Codigo = ConsecutivoTiquet();
-            tiquetParticular.HoraEntrada = DateTime.Now;
-            tiquetParticular.HoraSalida = DateTime.Now;
-            tiquetParticular.EstadoTiquet = false;
-            tiquetParticular.ValorExtra = 0;
-            tiquetParticular.ValorTotal = 0;
-            tiquetParticular.ValorMinimoTarifa = tarifa.ValorMinimo;
-            tiquetParticular.Tipo = Convert.ToString(tarifa.TipoVehiculo);
-            tiquetParticular.Placa = txtPlaca.Text;
-            tiquetParticular.NumeroEspacio = 1;
-            return tiquetParticular;
-        }
-
-        private string ConsecutivoTiquet()
-        {
-            if (tiquetParticularService.BuscarCodigo().Mensaje != null)
-            {
-                return "1";
-            }
-            else
-            {
-                return Convert.ToString(Convert.ToInt32(tiquetParticularService.BuscarCodigo().TiquetParticular.Codigo) + 1);
-            }
-        }
-
-        private Vehiculo MapearVehiculo()
-        {
-            Vehiculo vehiculo = new Vehiculo();
-            vehiculo.Placa = txtPlaca.Text;
-            vehiculo.Tipo = cmbTipoVehiculo.Text + "";
-            vehiculo.ModeloyMarca = txtModelo.Text + ";" + txtMarca.Text;
-            vehiculo.AplicaConvenio = "NO";
-            return vehiculo;
-        }
-
-        private void Guardar()
-        {
-
-        }
-
-        private void txtPlaca_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-            BuscarPlaca();
-        }
-
-        void BuscarPlaca()
-        {
-            char delimiter = ';';
-            string placa = txtPlaca.Text;
-
-            var buscarPlaca = vehiculoService.Buscar(placa);
-
-            if (buscarPlaca.Vehiculo == null)
-            {
-                MessageBox.Show("EL VEHICULO NO EXISTE, POR VUELVA A INTENTAR", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                cmbTipoVehiculo.Text = buscarPlaca.Vehiculo.Tipo;
-                string[] Datos = buscarPlaca.Vehiculo.ModeloyMarca.Split(delimiter);
-                txtModelo.Text = Datos[0];
-                txtMarca.Text = Datos[1];
-                MessageBox.Show("EL VEHICULO SE ENCONTRO CORRECTAMENTE ", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
         }
     }
 }

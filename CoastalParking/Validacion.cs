@@ -48,5 +48,20 @@ namespace CoastalParking
             }
             return error;
         }
+
+        public void LimpiarCajasDeTextoYComboBox(Control control)
+        {
+            foreach (var txt in control.Controls)
+            {
+                if (txt is TextBox)
+                {
+                    ((TextBox)txt).Clear();
+                }
+                else if (txt is ComboBox)
+                {
+                    ((ComboBox)txt).Text = "";
+                }
+            }
+        }
     }
 }

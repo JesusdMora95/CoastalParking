@@ -9,40 +9,6 @@ namespace Entity
         public int TiempoMinimo { get; set; }
         public double ValorMinimo { get; set; }
 
-        public TiquetParticular(string codigo, DateTime horaEntrada, int numeroEstacionamiento, int numeroPiso, string placa, string tipo, double valorMinimoTarifa, double valorNormalTarifa, int tiempoMinimo)
-        {
-            Codigo = codigo;
-            HoraEntrada = horaEntrada;
-            HoraSalida = DateTime.Now;
-            EstadoTiquet = false;
-            NumeroEspacio = numeroEstacionamiento;
-            NumeroPiso = numeroPiso;
-            Placa = placa;
-            Tipo = tipo;
-            ValorMinimoTarifa = valorMinimoTarifa;
-            ValorNormalTarifa = valorNormalTarifa;
-            TiempoMinimo = tiempoMinimo;
-            CalcularValorTiquet();
-        }
-
-        public TiquetParticular(string codigo, DateTime horaEntrada, DateTime horaSalida, bool estadoTiquet, double valorExtra, double valorTotal, int numeroEspacio, int numeroPiso, string placa, string tipo, double valorMinimoTarifa, double valorNormalTarifa, int tiempoMinimo, double valorMinimo)
-        {
-            Codigo = codigo;
-            HoraEntrada = horaEntrada;
-            HoraSalida = horaSalida;
-            EstadoTiquet = estadoTiquet;
-            ValorExtra = valorExtra;
-            ValorTotal = valorTotal;
-            NumeroEspacio = numeroEspacio;
-            NumeroPiso = numeroPiso;
-            Placa = placa;
-            Tipo = tipo;
-            ValorMinimoTarifa = valorMinimoTarifa;
-            ValorNormalTarifa = valorNormalTarifa;
-            TiempoMinimo = tiempoMinimo;
-            ValorMinimo = valorMinimo;
-        }
-
         public TiquetParticular()
         {
         }

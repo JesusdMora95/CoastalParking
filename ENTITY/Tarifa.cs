@@ -13,17 +13,6 @@ namespace Entity
         public int TiempoMinimo { get; set; }
         public string Mail { get; set; }
 
-
-        public Tarifa(int tipoVehiculo, string nombreTipodeVehiculo, DateTime fecha, double valorMinimo, double valorNormal, int tiempoMinimo)
-        {
-            TipoVehiculo = tipoVehiculo;
-            NombreTipodeVehiculo = nombreTipodeVehiculo;
-            Fecha = fecha;
-            ValorMinimo = valorMinimo;
-            ValorNormal = valorNormal;
-            TiempoMinimo = tiempoMinimo;
-        }
-
         public Tarifa()
         {
         }

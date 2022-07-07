@@ -33,8 +33,8 @@ namespace CoastalParking
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.txtNombre = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.Tabla = new System.Windows.Forms.DataGridView();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Tabla)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,10 +69,20 @@ namespace CoastalParking
             this.txtNombre.Size = new System.Drawing.Size(183, 22);
             this.txtNombre.TabIndex = 358;
             // 
+            // Tabla
+            // 
+            this.Tabla.BackgroundColor = System.Drawing.Color.White;
+            this.Tabla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Tabla.Location = new System.Drawing.Point(49, 97);
+            this.Tabla.Name = "Tabla";
+            this.Tabla.Size = new System.Drawing.Size(653, 336);
+            this.Tabla.TabIndex = 356;
+            // 
             // label2
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
+            this.label2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label2.Font = new System.Drawing.Font("Ebrima", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Image = ((System.Drawing.Image)(resources.GetObject("label2.Image")));
@@ -82,15 +92,7 @@ namespace CoastalParking
             this.label2.Size = new System.Drawing.Size(84, 21);
             this.label2.TabIndex = 357;
             this.label2.Text = "       Buscar";
-            // 
-            // Tabla
-            // 
-            this.Tabla.BackgroundColor = System.Drawing.Color.White;
-            this.Tabla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Tabla.Location = new System.Drawing.Point(49, 97);
-            this.Tabla.Name = "Tabla";
-            this.Tabla.Size = new System.Drawing.Size(653, 336);
-            this.Tabla.TabIndex = 356;
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // FrmHistorialTarifa
             // 

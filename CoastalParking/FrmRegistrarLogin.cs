@@ -16,6 +16,7 @@ namespace CoastalParking
     {
         LoginService loginService;
         Validacion Validacion = new Validacion();
+        FrmLogin Frm = new FrmLogin();
         public FrmRegistrarLogin()
         {
             loginService = new LoginService(ConfigConnectionString.ConnectionString);
@@ -40,13 +41,20 @@ namespace CoastalParking
 
         private void btModificar_Click(object sender, EventArgs e)
         {
-            if (Validacion.ValidarCampoVacio(this, errorProvider1) == false && Validacion.ValidarCampoVacio(this, errorProvider1) == false)
+            if (FrmLogin.dato.Equals("admin"))
             {
-                MessageBox.Show(loginService.Modificar(CrearLogin()));
+                if (Validacion.ValidarCampoVacio(this, errorProvider1) == false && Validacion.ValidarCampoVacio(this, errorProvider1) == false)
+                {
+                    MessageBox.Show(loginService.Modificar(CrearLogin()));
+                }
+                else
+                {
+                    errorProvider1.SetError(txtUsuario, "No Puede Estar Vacio");
+                }
             }
             else
             {
-                errorProvider1.SetError(txtUsuario, "No Puede Estar Vacio");
+                MessageBox.Show("No Tiene Acceso Para Modificar Este Formulario");
             }
         }
 

@@ -35,6 +35,27 @@ namespace DAL
             }
         }
 
+        public void Modificar(TiquetParticular tiquetParticular)
+        {
+            using (var command = _connection.CreateCommand())
+            {
+                command.CommandText = "update repuesto set Codigo=@Codigo, HoraEntrada=@HoraEntrada, HoraSalida=@HoraSalida, EstadoTiquet=@EstadoTiquet," +
+                    " ValorExtra=@ValorExtra, Total=@Total, ValorMinimo=@ValorMinimo, IdTarifa=@IdTarifa, IdVehiculo=@IdVehiculo, IdEstacionamiento=@IdEstacionamiento " +
+                    "where Codigo=@Codigo";
+                command.Parameters.Add(new SqlParameter("@Codigo", tiquetParticular.Codigo));
+                command.Parameters.Add(new SqlParameter("@HoraEntrada", tiquetParticular.HoraEntrada));
+                command.Parameters.Add(new SqlParameter("@HoraSalida", tiquetParticular.HoraSalida));
+                command.Parameters.Add(new SqlParameter("@EstadoTiquet", tiquetParticular.EstadoTiquet));
+                command.Parameters.Add(new SqlParameter("@ValorExtra", tiquetParticular.ValorExtra));
+                command.Parameters.Add(new SqlParameter("@Total", tiquetParticular.ValorTotal));
+                command.Parameters.Add(new SqlParameter("@ValorMinimo", tiquetParticular.ValorMinimo));
+                command.Parameters.Add(new SqlParameter("@IdTarifa", Convert.ToInt32(tiquetParticular.Tipo)));
+                command.Parameters.Add(new SqlParameter("@IdVehiculo", tiquetParticular.Placa));
+                command.Parameters.Add(new SqlParameter("@IdEstacionamiento", tiquetParticular.NumeroEspacio));
+                int fila = command.ExecuteNonQuery();
+            }
+        }
+
         public TiquetParticular BuscarPorCodigo(string placa)
         {
             using (var command = _connection.CreateCommand())
@@ -65,25 +86,6 @@ namespace DAL
             return null;
         }
 
-        public TiquetParticular BuscarCodigo()
-        {
-            using (var command = _connection.CreateCommand())
-            {
-                command.CommandText = "select MAX(Codigo) from TiquetParticular";
-                var reader = command.ExecuteReader();
-                if (reader.HasRows)
-                {
-                    while (reader.Read())
-                    {
-                        TiquetParticular tiquetParticular = new TiquetParticular();
-                        tiquetParticular.Codigo = reader.GetString(0);
-                        return tiquetParticular;
-                    }
-                }
-                reader.Close();
-            }
-            return null;
-        }
 
         public List<TiquetParticular> Consultar()
         {
@@ -113,6 +115,11 @@ namespace DAL
             }
 
             return tiquetParticulars;
+        }
+
+        public int TotalRegistros()
+        {
+            return Consultar().Count;
         }
 
     }

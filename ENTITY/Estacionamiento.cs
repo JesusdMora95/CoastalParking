@@ -7,23 +7,23 @@ namespace Entity
 
         public int NumeroEspacio { get; set; }
         public int NumeroPiso { get; set; }
-        public Boolean Estado { get; set; }
+        public string Estado { get; set; }
 
         public Estacionamiento(int numeroEspacio)
         {
             NumeroEspacio = numeroEspacio;
             NumeroPiso = 0;
-            Estado = false;
+            Estado = "false";
         }
 
         public Estacionamiento(int numeroEspacio, int numeroPiso)
         {
             NumeroEspacio = numeroEspacio;
             NumeroPiso = numeroPiso;
-            Estado = false;
+            Estado = "false";
         }
 
-        public Estacionamiento(int numeroEspacio, int numeroPiso, Boolean estado)
+        public Estacionamiento(int numeroEspacio, int numeroPiso, string estado)
         {
             NumeroEspacio = numeroEspacio;
             NumeroPiso = numeroPiso;
