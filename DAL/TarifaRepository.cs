@@ -84,12 +84,12 @@ namespace DAL
                     while (reader.Read())
                     {
                         Tarifa tarifa = new Tarifa();
-                        tarifa.TipoVehiculo = reader.GetInt32(0);
+                        tarifa.TipoVehiculo = Convert.ToInt32(reader["TipoVehiculo"]);
                         tarifa.NombreTipodeVehiculo = reader.GetString(1);
-                        tarifa.Fecha = reader.GetDateTime(2);
-                        tarifa.ValorMinimo = reader.GetInt32(3);
-                        tarifa.ValorNormal = reader.GetInt32(3);
-                        tarifa.TiempoMinimo = reader.GetInt32(3);
+                        tarifa.Fecha = Convert.ToDateTime(reader.GetString(2));
+                        tarifa.ValorMinimo = Convert.ToDouble(reader["ValorMinimo"]);
+                        tarifa.ValorNormal = Convert.ToDouble(reader["ValorNormal"]);
+                        tarifa.TiempoMinimo = Convert.ToInt32(reader["TiempoMinimo"]);
                         return tarifa;
                     }
                 }

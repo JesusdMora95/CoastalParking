@@ -42,6 +42,19 @@ namespace BLL
 
         }
 
+        public Tarifa ConsultarTarifa(string tipo)
+        {
+            try
+            {
+                connectionManager.Open();
+                return tarifaRepository.BuscarPorTipoVehiculo(tipo);
+            }
+            finally
+            {
+                connectionManager.Close();
+            }
+        }
+
         public int TotalElemtos()
         {
             try

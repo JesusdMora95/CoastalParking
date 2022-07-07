@@ -28,3 +28,4 @@ delete Parqueadero
 delete TiquetParticular
 
 select * from TiquetParticular
+select * from Tarifa
