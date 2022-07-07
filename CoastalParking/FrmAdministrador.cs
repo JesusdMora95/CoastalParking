@@ -94,5 +94,10 @@ namespace CoastalParking
         {
             AbrirFormEnPanel(new FrmConsultarHistorialTicket());
         }
+
+        private void btLogin_Click(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel(new FrmRegistrarLogin());
+        }
     }
 }

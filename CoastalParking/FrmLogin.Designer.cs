@@ -29,6 +29,7 @@ namespace CoastalParking
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLogin));
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -45,11 +46,13 @@ namespace CoastalParking
             this.BarraFrontal = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.errorProviderLogin = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.BarraFrontal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderLogin)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -148,6 +151,7 @@ namespace CoastalParking
             this.CheckBox1.TabIndex = 44;
             this.CheckBox1.Text = "see password";
             this.CheckBox1.UseVisualStyleBackColor = false;
+            this.CheckBox1.Visible = false;
             // 
             // txtPass
             // 
@@ -236,6 +240,10 @@ namespace CoastalParking
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
+            // errorProviderLogin
+            // 
+            this.errorProviderLogin.ContainerControl = this;
+            // 
             // FrmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -255,6 +263,7 @@ namespace CoastalParking
             this.BarraFrontal.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderLogin)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -276,6 +285,7 @@ namespace CoastalParking
         private System.Windows.Forms.Panel BarraFrontal;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.ErrorProvider errorProviderLogin;
     }
 }
 

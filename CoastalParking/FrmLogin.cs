@@ -1,13 +1,19 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using BLL;
 
 namespace CoastalParking
 {
     public partial class FrmLogin : Form
     {
+        public string dato = "admin";
+        public string dato1 = "verga";
+        LoginService loginService;
+        Validacion validacion = new Validacion();
         public FrmLogin()
         {
+            loginService = new LoginService(ConfigConnectionString.ConnectionString);
             InitializeComponent();
         }
 
@@ -18,15 +24,23 @@ namespace CoastalParking
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if (txtUser.Text.Equals("admin") && txtPass.Text.Equals("123"))
-            {
-                FrmAdministrador frmAdministrador = new FrmAdministrador();
-                frmAdministrador.Visible = true;
-                this.Visible = false;
-            }
-            else 
-            {
-                MessageBox.Show("Usuario o contraseña no valido");
+            if (validacion.ValidarCampoVacioEspecifico(txtUser,errorProviderLogin) == false && validacion.ValidarCampoVacioEspecifico(txtPass, errorProviderLogin) == false) {
+                foreach (var login in loginService.Consultar().logins)
+                {
+                    if (txtUser.Text == login.Usuario && txtPass.Text == login.Contraseña)
+                    {
+                        FrmAdministrador frmAdministrador = new FrmAdministrador();
+                        frmAdministrador.Visible = true;
+                        this.Visible = false;
+                    }
+                    else if (txtUser.Text != login.Usuario)
+                    {
+                        errorProviderLogin.SetError(txtUser, "Usuario Incorrecto");
+                    }else if (txtPass.Text != login.Contraseña)
+                    {
+                        errorProviderLogin.SetError(txtPass, "Contraseña Incorrecto");
+                    }
+                }
             }
             limpiar();
         }

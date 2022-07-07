@@ -31,14 +31,14 @@ namespace CoastalParking
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRegistrarEspacio));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btGuardar = new System.Windows.Forms.Button();
+            this.btBorrar = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.txtUser = new System.Windows.Forms.TextBox();
+            this.txtNumeroEspacio = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -46,14 +46,14 @@ namespace CoastalParking
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.button3);
+            this.panel1.Controls.Add(this.btGuardar);
+            this.panel1.Controls.Add(this.btBorrar);
             this.panel1.Controls.Add(this.button4);
             this.panel1.Controls.Add(this.comboBox1);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.panel3);
-            this.panel1.Controls.Add(this.txtUser);
+            this.panel1.Controls.Add(this.txtNumeroEspacio);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -61,41 +61,43 @@ namespace CoastalParking
             this.panel1.Size = new System.Drawing.Size(797, 454);
             this.panel1.TabIndex = 1;
             // 
-            // button1
+            // btGuardar
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(72)))), ((int)(((byte)(128)))));
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Ebrima", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(557, 218);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(107, 35);
-            this.button1.TabIndex = 466;
-            this.button1.Text = "   Guardar";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btGuardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(72)))), ((int)(((byte)(128)))));
+            this.btGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btGuardar.FlatAppearance.BorderSize = 0;
+            this.btGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btGuardar.Font = new System.Drawing.Font("Ebrima", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btGuardar.ForeColor = System.Drawing.Color.White;
+            this.btGuardar.Image = ((System.Drawing.Image)(resources.GetObject("btGuardar.Image")));
+            this.btGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btGuardar.Location = new System.Drawing.Point(557, 218);
+            this.btGuardar.Name = "btGuardar";
+            this.btGuardar.Size = new System.Drawing.Size(107, 35);
+            this.btGuardar.TabIndex = 466;
+            this.btGuardar.Text = "   Guardar";
+            this.btGuardar.UseVisualStyleBackColor = false;
+            this.btGuardar.Click += new System.EventHandler(this.btGuardar_Click);
             // 
-            // button3
+            // btBorrar
             // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(72)))), ((int)(((byte)(128)))));
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Ebrima", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(558, 300);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(106, 35);
-            this.button3.TabIndex = 465;
-            this.button3.Text = "    Cancelar";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btBorrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btBorrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(72)))), ((int)(((byte)(128)))));
+            this.btBorrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btBorrar.FlatAppearance.BorderSize = 0;
+            this.btBorrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btBorrar.Font = new System.Drawing.Font("Ebrima", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btBorrar.ForeColor = System.Drawing.Color.White;
+            this.btBorrar.Image = ((System.Drawing.Image)(resources.GetObject("btBorrar.Image")));
+            this.btBorrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btBorrar.Location = new System.Drawing.Point(558, 300);
+            this.btBorrar.Name = "btBorrar";
+            this.btBorrar.Size = new System.Drawing.Size(106, 35);
+            this.btBorrar.TabIndex = 465;
+            this.btBorrar.Text = "    Borrar";
+            this.btBorrar.UseVisualStyleBackColor = false;
+            this.btBorrar.Click += new System.EventHandler(this.btBorrar_Click);
             // 
             // button4
             // 
@@ -114,6 +116,7 @@ namespace CoastalParking
             this.button4.TabIndex = 464;
             this.button4.Text = "     Modificar";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // comboBox1
             // 
@@ -173,19 +176,19 @@ namespace CoastalParking
             this.panel3.Size = new System.Drawing.Size(101, 2);
             this.panel3.TabIndex = 355;
             // 
-            // txtUser
+            // txtNumeroEspacio
             // 
-            this.txtUser.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtNumeroEspacio.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtUser.BackColor = System.Drawing.Color.White;
-            this.txtUser.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtUser.Font = new System.Drawing.Font("Ebrima", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUser.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.txtUser.Location = new System.Drawing.Point(353, 224);
-            this.txtUser.MaxLength = 10;
-            this.txtUser.Name = "txtUser";
-            this.txtUser.Size = new System.Drawing.Size(100, 22);
-            this.txtUser.TabIndex = 354;
+            this.txtNumeroEspacio.BackColor = System.Drawing.Color.White;
+            this.txtNumeroEspacio.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtNumeroEspacio.Font = new System.Drawing.Font("Ebrima", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNumeroEspacio.ForeColor = System.Drawing.Color.Black;
+            this.txtNumeroEspacio.Location = new System.Drawing.Point(353, 224);
+            this.txtNumeroEspacio.MaxLength = 10;
+            this.txtNumeroEspacio.Name = "txtNumeroEspacio";
+            this.txtNumeroEspacio.Size = new System.Drawing.Size(100, 22);
+            this.txtNumeroEspacio.TabIndex = 354;
             // 
             // label7
             // 
@@ -217,14 +220,14 @@ namespace CoastalParking
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        internal System.Windows.Forms.Button button1;
-        internal System.Windows.Forms.Button button3;
+        internal System.Windows.Forms.Button btGuardar;
+        internal System.Windows.Forms.Button btBorrar;
         internal System.Windows.Forms.Button button4;
         private System.Windows.Forms.ComboBox comboBox1;
         internal System.Windows.Forms.Label label3;
         internal System.Windows.Forms.Label label1;
         internal System.Windows.Forms.Panel panel3;
-        internal System.Windows.Forms.TextBox txtUser;
+        internal System.Windows.Forms.TextBox txtNumeroEspacio;
         internal System.Windows.Forms.Label label7;
     }
 }

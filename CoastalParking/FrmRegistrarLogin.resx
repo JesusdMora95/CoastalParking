@@ -117,8 +117,40 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="icons8_new_ticket_20px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icons8_new_ticket_20px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btGuardar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAALJJREFUOE/t
+        kjEKwjAUhgPSWbEO6ix0KuoBvKGncHDxEm7aodou1RO4qGeI34PXQVoopgGh9IcPwv+Sb0hi+vw/1toR
+        HGGjlXuQTCCDBIZau0VluS/ZFArfsrMv2a1RxnABWxhoVQmzEC5wlbXW9WHDEp6wg4pUBCCiZlkZNkbw
+        gAMEWks/gzv8fmcc+JLCHER2ArcH4OAKXrAH+Wdyb2MduwXBGt6QtpaVQRR7k3U5xnwAEjfhxOPkyDAA
+        AAAASUVORK5CYII=
+</value>
   </data>
+  <data name="btBorrar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAAdFJREFUOE+1
+        lM1LVGEUh2d0FEIkxS9cqBRGgeC+XCi0MBBaudBFuBHatYp2rYz+h3buXIQb/wXHVZFiWWIL0bRlKoZf
+        Rafnd+65Npe5zNjCBx7uvL9z7pl35s47hXqYWRcO4xDejPj/4MZOfI1bWMkffI/P8Ua014bGJ3iAKUe4
+        Hh4qCHZxNG7Lh4aX3pqwhCPYGGXVm/ExLqM4x6koZ6Ew4y0JevfOKOVCPX3zM7wfcQKBvrP043yL6xrW
+        GzrnnWaf8PKTqPDKY7NF1FP96KtkaEe0VUGtET+rEaYj9sKXJLMHse7Gqw596l1mb9OgPVnbD2zwEHhd
+        OXQVc4eS93mH2V4a6AcrPnhQAVndoWRF1NP+jSUFd1BsRE8G8jZ85x1mm9gbJYd1A2qYnnZRQSvqBBxj
+        U/RlINdO9SRFZqe8HvTUbDsiD3WcxKOIqqCWO5SrjqGY90bB4kWS2QoWI66CWg9uqBE0dAD3fWU2EW3e
+        2ILfPeYERJwL9cqhP+NajvI/CMfxF+r71AkoRakKarfxBIX+SO5GKQsFnecLdYF2MYv96MeK6y18hjso
+        NKzuP84YpienFmW8F7fVhkad0UlcQO1Guz7Fr/gGH0brdVMo/AViZOf85KFKnQAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="btModificar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAARFJREFUOE/d
+        1LFKQmEYxvGT2tBgOAnRRTQYpxZBt65CugERFIc276GaTIJW25qixRtoaBEjWlwVdUhxUE//5/AKbn7n
+        OIQ98Fs+3/fh06N6/zNBEJziBlVk7DheKPAxxCf6+MKxvRwtLKpsjHckcIRvlG3EPSyty14wQwMp9FCz
+        MbewoLIJmtDNrjDHB/T2T2x0exi+gMoekLCzJN6gG/vhoEsYLuIHtziws0M8Y4CzcNAlDKtsijusy/SZ
+        7VR2j82yNv627BJ6AE9I2pme6iP0AM7DQdew0IXyiixU1sIIkcvSWKIEfb86iFemsJTHAvrhX0NRWc5G
+        ooXFClZGN9Xbj1emsKxb1VFAvH+PPYjn/QKrk5FhC3Q7rAAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <metadata name="errorProvider1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
 </root>
