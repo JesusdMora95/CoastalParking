@@ -99,6 +99,19 @@ namespace BLL
 
         }
 
+        public TiquetParticular ConsultarPorPlaca(string placa)
+        {
+            try
+            {
+                connectionManager.Open();
+                return tiquetParticularRepository.ConsultaPorPlaca(placa);
+            }
+            finally
+            {
+                connectionManager.Close();
+            }
+        }
+
         public int TotalElemtos()
         {
             try

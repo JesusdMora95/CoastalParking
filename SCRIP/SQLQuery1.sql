@@ -9,8 +9,8 @@ create table Vehiculo (Placa varchar(5) primary key, Tipo varchar(15), ModeloyMa
 drop table TiquetParticular
 
 create table TiquetParticular (Codigo varchar(5) primary key,
-HoraEntrada varchar(21),
-HoraSalida varchar(21),
+HoraEntrada varchar(100),
+HoraSalida varchar(100),
 EstadoTiquet varchar(5),
 ValorExtra numeric, 
 Total numeric,
@@ -25,6 +25,6 @@ create table Login(Usuario Varchar(8) primary key, Contraseña Varchar(8))
 insert Login(Usuario,Contraseña) values('admin','123')
 
 delete Parqueadero
-delete Estacionamiento
+delete TiquetParticular
 
 select * from TiquetParticular

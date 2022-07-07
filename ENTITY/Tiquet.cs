@@ -5,11 +5,11 @@ namespace Entity
     public abstract class Tiquet
     {
         public string Codigo { get; set; }
-        public DateTime HoraEntrada { get; set; }
-        public DateTime HoraSalida { get; set; }
-        public Boolean EstadoTiquet { get; set; }
-        public double ValorExtra { get; set; }
-        public double ValorTotal { get; set; }
+        public string HoraEntrada { get; set; }
+        public string HoraSalida { get; set; }
+        public string EstadoTiquet { get; set; }
+        public decimal ValorExtra { get; set; }
+        public decimal ValorTotal { get; set; }
         public int NumeroEspacio { get; set; }
         public int NumeroPiso { get; set; }
         public string Placa { get; set; }
@@ -19,13 +19,13 @@ namespace Entity
 
         public int CantidadDeHoras()
         {
-            TimeSpan resultado = HoraSalida - HoraEntrada;
+            TimeSpan resultado = Convert.ToDateTime(HoraSalida) - Convert.ToDateTime(HoraEntrada);
             return resultado.Hours;
         }
 
-        public double CantidadDeMinutosEnHoras()
+        public decimal CantidadDeMinutosEnHoras()
         {
-            TimeSpan resultado = HoraSalida - HoraEntrada;
+            TimeSpan resultado = Convert.ToDateTime(HoraSalida) - Convert.ToDateTime(HoraEntrada);
             return resultado.Minutes / 60;
         }
 

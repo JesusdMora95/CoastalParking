@@ -31,14 +31,13 @@ namespace CoastalParking
             }
         }
 
-        int bandera = 0;
         private TiquetParticular CrearTiket()
         {
             TiquetParticular tiquet = new TiquetParticular();
             tiquet.Codigo = Convert.ToString(tiquetParticularService.TotalElemtos());
-            tiquet.HoraEntrada = DateTime.Now;
-            tiquet.HoraSalida = DateTime.Now;
-            tiquet.EstadoTiquet = false;
+            tiquet.HoraEntrada = Convert.ToString(DateTime.Now);
+            tiquet.HoraSalida = Convert.ToString(DateTime.Now);
+            tiquet.EstadoTiquet = "false";
             tiquet.ValorExtra = 0;
             tiquet.ValorTotal = 0;
             tiquet.ValorMinimo = 0;
@@ -91,8 +90,8 @@ namespace CoastalParking
         private void label8_Click(object sender, EventArgs e)
         {
             TiquetParticular tiquet = new TiquetParticular();
+            tiquet = tiquetParticularService.ConsultarPorPlaca(txtPlaca.Text);
             valor = Convert.ToInt32(tiquet.Codigo);
-            tiquet = tiquetParticularService.Buscar(txtPlaca.Text).TiquetParticular;
             txtPlaca.Text = tiquet.Placa;
             cmbTipoVehiculo.Text = tiquet.Tipo;
             comboNumeroEspacio.Text = Convert.ToString(tiquet.NumeroEspacio);

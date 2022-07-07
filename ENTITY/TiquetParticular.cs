@@ -4,10 +4,10 @@ namespace Entity
 {
     public class TiquetParticular : Tiquet
     {
-        public double ValorMinimoTarifa { get; set; }
-        public double ValorNormalTarifa { get; set; }
+        public decimal ValorMinimoTarifa { get; set; }
+        public decimal ValorNormalTarifa { get; set; }
         public int TiempoMinimo { get; set; }
-        public double ValorMinimo { get; set; }
+        public decimal ValorMinimo { get; set; }
 
         public TiquetParticular()
         {

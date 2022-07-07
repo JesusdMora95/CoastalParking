@@ -69,12 +69,12 @@ namespace DAL
                     {
                         TiquetParticular tiquet = new TiquetParticular();
                         tiquet.Codigo = reader.GetString(0);
-                        tiquet.HoraEntrada = reader.GetDateTime(1);
-                        tiquet.HoraSalida = reader.GetDateTime(2);
-                        tiquet.EstadoTiquet = Convert.ToBoolean(reader.GetString(3));
-                        tiquet.ValorExtra = reader.GetDouble(4);
-                        tiquet.ValorTotal = reader.GetDouble(5);
-                        tiquet.ValorMinimo = reader.GetDouble(6);
+                        tiquet.HoraEntrada = reader.GetString(1);
+                        tiquet.HoraSalida = reader.GetString(2);
+                        tiquet.EstadoTiquet = reader.GetString(3);
+                        tiquet.ValorExtra = reader.GetDecimal(4);
+                        tiquet.ValorTotal = reader.GetDecimal(5);
+                        tiquet.ValorMinimo = reader.GetDecimal(6);
                         tiquet.Tipo = reader.GetString(7);
                         tiquet.Placa = reader.GetString(8);
                         tiquet.NumeroEspacio = reader.GetInt32(9);
@@ -85,7 +85,6 @@ namespace DAL
             }
             return null;
         }
-
 
         public List<TiquetParticular> Consultar()
         {
@@ -99,12 +98,12 @@ namespace DAL
                     TiquetParticular tiquet = new TiquetParticular();
 
                     tiquet.Codigo = reader.GetString(0);
-                    tiquet.HoraEntrada = reader.GetDateTime(1);
-                    tiquet.HoraSalida = reader.GetDateTime(2);
-                    tiquet.EstadoTiquet = Convert.ToBoolean(reader["EstadoTiquet"]);
-                    tiquet.ValorExtra = reader.GetDouble(4);
-                    tiquet.ValorTotal = reader.GetDouble(5);
-                    tiquet.ValorMinimo = reader.GetDouble(6);
+                    tiquet.HoraEntrada = reader.GetString(1);
+                    tiquet.HoraSalida = reader.GetString(2);
+                    tiquet.EstadoTiquet =reader.GetString(3);
+                    tiquet.ValorExtra = reader.GetDecimal(4);
+                    tiquet.ValorTotal = reader.GetDecimal(5);
+                    tiquet.ValorMinimo = reader.GetDecimal(6);
                     tiquet.Tipo = reader.GetString(7);
                     tiquet.Placa = reader.GetString(8);
                     tiquet.NumeroEspacio = reader.GetInt32(9);
@@ -120,6 +119,18 @@ namespace DAL
         public int TotalRegistros()
         {
             return Consultar().Count;
+        }
+
+        public TiquetParticular ConsultaPorPlaca(string placa)
+        {
+            foreach(TiquetParticular item in Consultar())
+            {
+                if (item.Placa.Equals(placa))
+                {
+                    return item;
+                }
+            }
+            return null;
         }
 
     }
