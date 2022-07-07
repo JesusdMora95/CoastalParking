@@ -39,7 +39,7 @@ namespace DAL
         {
             using (var command = _connection.CreateCommand())
             {
-                command.CommandText = "update repuesto set Codigo=@Codigo, HoraEntrada=@HoraEntrada, HoraSalida=@HoraSalida, EstadoTiquet=@EstadoTiquet," +
+                command.CommandText = "update TiquetParticular set Codigo=@Codigo, HoraEntrada=@HoraEntrada, HoraSalida=@HoraSalida, EstadoTiquet=@EstadoTiquet," +
                     " ValorExtra=@ValorExtra, Total=@Total, ValorMinimo=@ValorMinimo, IdTarifa=@IdTarifa, IdVehiculo=@IdVehiculo, IdEstacionamiento=@IdEstacionamiento " +
                     "where Codigo=@Codigo";
                 command.Parameters.Add(new SqlParameter("@Codigo", tiquetParticular.Codigo));
@@ -104,9 +104,9 @@ namespace DAL
                     tiquet.ValorExtra = reader.GetDecimal(4);
                     tiquet.ValorTotal = reader.GetDecimal(5);
                     tiquet.ValorMinimo = reader.GetDecimal(6);
-                    tiquet.Tipo = reader.GetString(7);
+                    tiquet.Tipo1 = reader.GetDecimal(7);
                     tiquet.Placa = reader.GetString(8);
-                    tiquet.NumeroEspacio = reader.GetInt32(9);
+                    tiquet.NumeroEspacio1 = reader.GetString(9);
 
                     tiquetParticulars.Add(tiquet);
                 }

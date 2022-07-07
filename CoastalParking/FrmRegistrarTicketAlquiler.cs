@@ -93,8 +93,14 @@ namespace CoastalParking
             tiquet = tiquetParticularService.ConsultarPorPlaca(txtPlaca.Text);
             valor = Convert.ToInt32(tiquet.Codigo);
             txtPlaca.Text = tiquet.Placa;
-            cmbTipoVehiculo.Text = tiquet.Tipo;
-            comboNumeroEspacio.Text = Convert.ToString(tiquet.NumeroEspacio);
+            foreach (Tarifa item in tarifa.Consultar().Tarifas)
+            {
+                if (item.TipoVehiculo == tiquet.Tipo1)
+                {
+                    cmbTipoVehiculo.Text = Convert.ToString(item.NombreTipodeVehiculo);
+                }
+            }
+            comboNumeroEspacio.Text = Convert.ToString(tiquet.NumeroEspacio1);
         }
 
         private void btCancelar_Click(object sender, EventArgs e)

@@ -75,11 +75,6 @@ namespace CoastalParking
             AbrirFormEnPanel(new FrmRegistrarTarifa());
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-            AbrirFormEnPanel(new FrmConsultarHistorial());
-        }
-
         private void button6_Click(object sender, EventArgs e)
         {
             AbrirFormEnPanel(new FrmRegistrarTicketAlquiler());

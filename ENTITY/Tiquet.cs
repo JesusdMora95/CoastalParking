@@ -11,9 +11,11 @@ namespace Entity
         public decimal ValorExtra { get; set; }
         public decimal ValorTotal { get; set; }
         public int NumeroEspacio { get; set; }
+        public string NumeroEspacio1 { get; set; }
         public int NumeroPiso { get; set; }
         public string Placa { get; set; }
         public string Tipo { get; set; }
+        public decimal Tipo1 { get; set; }
 
         public abstract void CalcularValorTiquet();
 

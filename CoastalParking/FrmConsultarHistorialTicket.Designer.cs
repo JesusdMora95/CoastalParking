@@ -31,18 +31,22 @@ namespace CoastalParking
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmConsultarHistorialTicket));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
+            this.txtPlaca = new System.Windows.Forms.TextBox();
+            this.labeLConsultar = new System.Windows.Forms.Label();
+            this.Tabla = new System.Windows.Forms.DataGridView();
             this.label7 = new System.Windows.Forms.Label();
+            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HoraEntrada = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HoraSalida = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ValorExtra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ValorTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ValorMinimo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NumeroEspacio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Tabla)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -51,82 +55,15 @@ namespace CoastalParking
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button6);
-            this.panel1.Controls.Add(this.comboBox1);
-            this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.panel6);
-            this.panel1.Controls.Add(this.textBox4);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.dataGridView1);
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.txtPlaca);
+            this.panel1.Controls.Add(this.labeLConsultar);
+            this.panel1.Controls.Add(this.Tabla);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Location = new System.Drawing.Point(8, 8);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(829, 532);
             this.panel1.TabIndex = 4;
-            // 
-            // button2
-            // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(72)))), ((int)(((byte)(128)))));
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Ebrima", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(696, 372);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(106, 35);
-            this.button2.TabIndex = 359;
-            this.button2.Text = "    Cancelar";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
-            // button6
-            // 
-            this.button6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(72)))), ((int)(((byte)(128)))));
-            this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Font = new System.Drawing.Font("Ebrima", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.ForeColor = System.Drawing.Color.White;
-            this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
-            this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.Location = new System.Drawing.Point(696, 321);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(106, 35);
-            this.button6.TabIndex = 357;
-            this.button6.Text = "     Modificar";
-            this.button6.UseVisualStyleBackColor = false;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Tarifa",
-            "Pagos",
-            "Reportes"});
-            this.comboBox1.Location = new System.Drawing.Point(529, 140);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 355;
-            this.comboBox1.Text = "SELECCIONA";
-            // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Ebrima", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(483, 139);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(40, 21);
-            this.label3.TabIndex = 354;
-            this.label3.Text = "Tipo";
             // 
             // panel6
             // 
@@ -135,65 +72,62 @@ namespace CoastalParking
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(96)))), ((int)(((byte)(130)))));
             this.panel6.Location = new System.Drawing.Point(46, 156);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(319, 2);
+            this.panel6.Size = new System.Drawing.Size(625, 2);
             this.panel6.TabIndex = 352;
             // 
-            // textBox4
+            // txtPlaca
             // 
-            this.textBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtPlaca.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox4.BackColor = System.Drawing.Color.White;
-            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox4.Font = new System.Drawing.Font("Ebrima", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.ForeColor = System.Drawing.Color.Black;
-            this.textBox4.Location = new System.Drawing.Point(46, 136);
-            this.textBox4.MaxLength = 10;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(318, 22);
-            this.textBox4.TabIndex = 351;
+            this.txtPlaca.BackColor = System.Drawing.Color.White;
+            this.txtPlaca.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPlaca.Font = new System.Drawing.Font("Ebrima", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPlaca.ForeColor = System.Drawing.Color.Black;
+            this.txtPlaca.Location = new System.Drawing.Point(46, 136);
+            this.txtPlaca.MaxLength = 10;
+            this.txtPlaca.Name = "txtPlaca";
+            this.txtPlaca.Size = new System.Drawing.Size(624, 22);
+            this.txtPlaca.TabIndex = 351;
             // 
-            // label2
+            // labeLConsultar
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Ebrima", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Image = ((System.Drawing.Image)(resources.GetObject("label2.Image")));
-            this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label2.Location = new System.Drawing.Point(371, 137);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(84, 21);
-            this.label2.TabIndex = 350;
-            this.label2.Text = "       Buscar";
+            this.labeLConsultar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labeLConsultar.AutoSize = true;
+            this.labeLConsultar.Font = new System.Drawing.Font("Ebrima", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labeLConsultar.ForeColor = System.Drawing.Color.Black;
+            this.labeLConsultar.Image = ((System.Drawing.Image)(resources.GetObject("labeLConsultar.Image")));
+            this.labeLConsultar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.labeLConsultar.Location = new System.Drawing.Point(677, 137);
+            this.labeLConsultar.Name = "labeLConsultar";
+            this.labeLConsultar.Size = new System.Drawing.Size(84, 21);
+            this.labeLConsultar.TabIndex = 350;
+            this.labeLConsultar.Text = "       Buscar";
+            this.labeLConsultar.Click += new System.EventHandler(this.labeLConsultar_Click);
             // 
-            // dataGridView1
+            // Tabla
             // 
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.Tabla.AllowUserToAddRows = false;
+            this.Tabla.AllowUserToDeleteRows = false;
+            this.Tabla.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(46, 174);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(615, 311);
-            this.dataGridView1.TabIndex = 344;
-            // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(72)))), ((int)(((byte)(128)))));
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Ebrima", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(696, 268);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(106, 35);
-            this.button1.TabIndex = 341;
-            this.button1.Text = "     Imprimir";
-            this.button1.UseVisualStyleBackColor = false;
+            this.Tabla.BackgroundColor = System.Drawing.Color.White;
+            this.Tabla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Tabla.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Codigo,
+            this.HoraEntrada,
+            this.HoraSalida,
+            this.Estado,
+            this.ValorExtra,
+            this.ValorTotal,
+            this.ValorMinimo,
+            this.Tipo,
+            this.NumeroEspacio});
+            this.Tabla.Location = new System.Drawing.Point(46, 174);
+            this.Tabla.Name = "Tabla";
+            this.Tabla.ReadOnly = true;
+            this.Tabla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.Tabla.Size = new System.Drawing.Size(715, 311);
+            this.Tabla.TabIndex = 344;
             // 
             // label7
             // 
@@ -201,11 +135,65 @@ namespace CoastalParking
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Ebrima", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(347, 61);
+            this.label7.Location = new System.Drawing.Point(339, 61);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(137, 21);
+            this.label7.Size = new System.Drawing.Size(131, 21);
             this.label7.TabIndex = 327;
-            this.label7.Text = "HISTORIAL TICKET";
+            this.label7.Text = "CONSULTA TIKET";
+            // 
+            // Codigo
+            // 
+            this.Codigo.HeaderText = "ColumnCodigo";
+            this.Codigo.Name = "Codigo";
+            this.Codigo.ReadOnly = true;
+            // 
+            // HoraEntrada
+            // 
+            this.HoraEntrada.HeaderText = "ColumnHoraEntrada";
+            this.HoraEntrada.Name = "HoraEntrada";
+            this.HoraEntrada.ReadOnly = true;
+            // 
+            // HoraSalida
+            // 
+            this.HoraSalida.HeaderText = "ColumnHoraSalida";
+            this.HoraSalida.Name = "HoraSalida";
+            this.HoraSalida.ReadOnly = true;
+            // 
+            // Estado
+            // 
+            this.Estado.HeaderText = "ColumnEstado";
+            this.Estado.Name = "Estado";
+            this.Estado.ReadOnly = true;
+            // 
+            // ValorExtra
+            // 
+            this.ValorExtra.HeaderText = "ColumnValorExtra";
+            this.ValorExtra.Name = "ValorExtra";
+            this.ValorExtra.ReadOnly = true;
+            // 
+            // ValorTotal
+            // 
+            this.ValorTotal.HeaderText = "ColumnValorTotal";
+            this.ValorTotal.Name = "ValorTotal";
+            this.ValorTotal.ReadOnly = true;
+            // 
+            // ValorMinimo
+            // 
+            this.ValorMinimo.HeaderText = "ColumnValorMinimo";
+            this.ValorMinimo.Name = "ValorMinimo";
+            this.ValorMinimo.ReadOnly = true;
+            // 
+            // Tipo
+            // 
+            this.Tipo.HeaderText = "ColumnTipo";
+            this.Tipo.Name = "Tipo";
+            this.Tipo.ReadOnly = true;
+            // 
+            // NumeroEspacio
+            // 
+            this.NumeroEspacio.HeaderText = "ColumnNumeroEspacio";
+            this.NumeroEspacio.Name = "NumeroEspacio";
+            this.NumeroEspacio.ReadOnly = true;
             // 
             // FrmConsultarHistorialTicket
             // 
@@ -218,7 +206,7 @@ namespace CoastalParking
             this.Text = "FrmConsultarHistorialTicket";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Tabla)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -226,15 +214,19 @@ namespace CoastalParking
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        internal System.Windows.Forms.Button button2;
-        internal System.Windows.Forms.Button button6;
-        private System.Windows.Forms.ComboBox comboBox1;
-        internal System.Windows.Forms.Label label3;
         internal System.Windows.Forms.Panel panel6;
-        internal System.Windows.Forms.TextBox textBox4;
-        internal System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        internal System.Windows.Forms.Button button1;
+        internal System.Windows.Forms.TextBox txtPlaca;
+        internal System.Windows.Forms.Label labeLConsultar;
+        private System.Windows.Forms.DataGridView Tabla;
         internal System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HoraEntrada;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HoraSalida;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ValorExtra;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ValorTotal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ValorMinimo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tipo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NumeroEspacio;
     }
 }

@@ -92,6 +92,7 @@ namespace BLL
 
         }
 
+
         /* public BusquedaReponse ConsultaUltimoTiquet(string text)
          {
              BusquedaReponse busquedaReponse;
