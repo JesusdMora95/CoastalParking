@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
 using Entity;
@@ -32,7 +25,6 @@ namespace CoastalParking
             txtHoraEntrada.Text = tiquetParticular.HoraEntrada;
             tiquetParticular.HoraSalida = Convert.ToString(DateTime.Now);
             txtHoraSalida.Text = tiquetParticular.HoraSalida;
-
             Tarifa tarifa = new Tarifa();
             tarifa = tarifaService.ConsultarTarifa(Convert.ToString(tiquetParticular.Tipo1));
             MessageBox.Show(Convert.ToString(Convert.ToDouble(Convert.ToDateTime(tiquetParticular.HoraSalida).Minute)));

@@ -30,7 +30,6 @@ namespace DAL
                 command.Parameters.Add(new SqlParameter("@ValorNormal", tarifa.ValorNormal));
                 command.Parameters.Add(new SqlParameter("@TiempoMinimo", tarifa.TiempoMinimo));
                 int fila = command.ExecuteNonQuery();
-
             }
         }
 
@@ -55,7 +54,6 @@ namespace DAL
                 }
                 reader.Close();
             }
-
             return tarifas;
         }
 
@@ -93,7 +91,6 @@ namespace DAL
                         return tarifa;
                     }
                 }
-
                 reader.Close();
             }
             return null;
@@ -108,6 +105,5 @@ namespace DAL
         {
             return Consultar().Count();
         }
-
     }
 }

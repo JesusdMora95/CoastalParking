@@ -8,7 +8,6 @@ namespace BLL
 {
     public class TiquetParticularService
     {
-
         TiquetParticularRepository tiquetParticularRepository;
         ConnectionManager connectionManager;
         public TiquetParticularService(string connectionstring)
@@ -32,7 +31,6 @@ namespace BLL
             }
             catch (Exception exception)
             {
-
                 return "Se presentó el siguiente error:" + exception.Message;
             }
             finally
@@ -45,14 +43,12 @@ namespace BLL
         {
             try
             {
-                connectionManager.Open();
+                    connectionManager.Open();
                     tiquetParticularRepository.Modificar(tiquetParticular);
                     return "Datos Guardados Satisfactoriamente";
-
             }
             catch (Exception exception)
             {
-
                 return "Se presentó el siguiente error:" + exception.Message;
             }
             finally
@@ -169,7 +165,6 @@ namespace BLL
                 Mensaje = mensaje;
                 Error = true;
             }
-
         }
     }
 }

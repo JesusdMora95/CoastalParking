@@ -64,7 +64,6 @@ namespace CoastalParking
             {
                 Application.Exit();
             }
-            
         }
 
         private void BarraFrontal_MouseDown(object sender, MouseEventArgs e)

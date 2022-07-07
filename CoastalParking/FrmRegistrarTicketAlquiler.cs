@@ -81,8 +81,7 @@ namespace CoastalParking
         {
             foreach (Estacionamiento item in estacionamientoService.Consultar().estacionamientos)
             {
-
-                    comboNumeroEspacio.Items.Add(item.NumeroEspacio);
+                comboNumeroEspacio.Items.Add(item.NumeroEspacio);
             }
         }
 

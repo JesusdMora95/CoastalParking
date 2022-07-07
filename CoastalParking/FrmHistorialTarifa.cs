@@ -77,7 +77,6 @@ namespace CoastalParking
                 new Font(Tabla.Font, FontStyle.Bold);
         }
 
-
         private void label2_Click(object sender, EventArgs e)
         {
             SeleccionDeConsulta();

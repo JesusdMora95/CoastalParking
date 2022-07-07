@@ -3,9 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Data.Common;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DAL
 {
@@ -25,7 +22,6 @@ namespace DAL
                 command.Parameters.Add(new SqlParameter("@EstacioTotal", EspacioTotal));
                 command.Parameters.Add(new SqlParameter("@EspacioDisponible", EspacioDisponible));
                 int fila = command.ExecuteNonQuery();
-
             }
         }
 
@@ -45,7 +41,6 @@ namespace DAL
                 }
                 reader.Close();
             }
-
             return parqueaderos;
         }
 
@@ -58,14 +53,13 @@ namespace DAL
                 command.Parameters.Add(new SqlParameter("@EspacioDisponible", EspacioDisponible));
                 command.Parameters.Add(new SqlParameter("@Total", Total));
                 int fila = command.ExecuteNonQuery();
-
             }
         }
 
         public int ObtenerTotalRegistros()
         {
             int valor = 0;
-            foreach(Parqueadero parqueadero in Consultar())
+            foreach (Parqueadero parqueadero in Consultar())
             {
                 valor = parqueadero.EspacioTotal;
             }

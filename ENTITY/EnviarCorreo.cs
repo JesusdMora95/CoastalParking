@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net.Mail;
 using Entity;
-
 namespace ENTITY
 {
     public class EnviarCorreo
@@ -21,10 +20,7 @@ namespace ENTITY
             smtp.EnableSsl = true;
             smtp.UseDefaultCredentials = false;
             smtp.Credentials = new System.Net.NetworkCredential("jennifer.cuello2008@gmail.com", "Pandapolar3045381013");
-
-
         }
-
 
         public void ConfigurarMail(Tarifa tarifa)
         {
@@ -48,7 +44,6 @@ namespace ENTITY
             }
             catch (Exception e)
             {
-
                 return "error en enviar correo " + e.Message;
             }
             finally
@@ -56,7 +51,5 @@ namespace ENTITY
                 mail.Dispose();
             }
         }
-
-
     }
 }

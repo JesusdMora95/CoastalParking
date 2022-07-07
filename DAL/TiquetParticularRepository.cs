@@ -112,7 +112,6 @@ namespace DAL
                 }
                 reader.Close();
             }
-
             return tiquetParticulars;
         }
 
@@ -132,6 +131,5 @@ namespace DAL
             }
             return null;
         }
-
     }
 }

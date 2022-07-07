@@ -5,7 +5,6 @@ using Entity;
 using System.Data.SqlClient;
 using ENTITY;
 
-
 namespace DAL
 {
     public class VehiculoRepository
@@ -53,11 +52,8 @@ namespace DAL
                 }
                 reader.Close();
             }
-
             return null;
         }
-
-
 
         public List<Vehiculo> Consultar()
         {
@@ -77,7 +73,6 @@ namespace DAL
                 }
                 reader.Close();
             }
-
             return vehiculos;
         }
 
@@ -91,5 +86,4 @@ namespace DAL
             }
         }
     }
-
 }

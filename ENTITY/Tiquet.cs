@@ -30,6 +30,5 @@ namespace Entity
             TimeSpan resultado = Convert.ToDateTime(HoraSalida) - Convert.ToDateTime(HoraEntrada);
             return resultado.Minutes / 60;
         }
-
     }
 }

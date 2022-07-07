@@ -25,21 +25,18 @@ namespace BLL
                 {
                     tarifaRepository.Guardar(tarifa);
                     return "Datos Guardados Satisfactoriamente";
-
                 }
                 return $"La Tarifa con el tipo de vehiculo {tarifa.NombreTipodeVehiculo} ya se encuentra registrada";
 
             }
             catch (Exception exception)
             {
-
                 return "Se presentó el siguiente error:" + exception.Message;
             }
             finally
             {
                 connectionManager.Close();
             }
-
         }
 
         public Tarifa ConsultarTarifa(string tipo)
@@ -68,7 +65,6 @@ namespace BLL
             }
         }
 
-
         public ConsultaResponse Consultar()
         {
             try
@@ -84,7 +80,6 @@ namespace BLL
             {
                 connectionManager.Close();
             }
-
         }
 
         public ConsultaResponse ConsultarPorNombreVehiculo(string nombre)
@@ -102,36 +97,7 @@ namespace BLL
             {
                 connectionManager.Close();
             }
-
         }
-
-
-        /* public BusquedaReponse ConsultaUltimoTiquet(string text)
-         {
-             BusquedaReponse busquedaReponse;
-             try
-             {
-                 connectionManager.Open();
-                 busquedaReponse = new BusquedaReponse(tarifaRepository.BuscarCodigo(text));
-                 if (busquedaReponse.Error)
-                 {
-
-                     return busquedaReponse = new BusquedaReponse("No");
-                 }
-                 else
-                 {
-                     return busquedaReponse;
-                 }
-             }
-             catch (Exception exception)
-             {
-                 return busquedaReponse = new BusquedaReponse("Se presentó el siguiente error:" + exception.Message);
-             }
-             finally
-             {
-                 connectionManager.Close();
-             }
-         }*/
 
         public class ConsultaResponse
         {
@@ -150,7 +116,6 @@ namespace BLL
                 Mensaje = mensaje;
                 Error = true;
             }
-
         }
 
 
@@ -169,7 +134,6 @@ namespace BLL
             {
                 connectionManager.Close();
             }
-
         }
 
         public class BusquedaReponse
@@ -189,7 +153,6 @@ namespace BLL
                 Mensaje = mensaje;
                 Error = true;
             }
-
         }
     }
 }

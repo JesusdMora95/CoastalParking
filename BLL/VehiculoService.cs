@@ -7,7 +7,6 @@ namespace BLL
 {
     public class VehiculoService
     {
-
         VehiculoRepository vehiculoRepository;
         ConnectionManager connectionManager;
         public VehiculoService(string connectionstring)
@@ -27,11 +26,9 @@ namespace BLL
                     return "Datos Guardados Satisfactoriamente";
                 }
                 return $"El vehiculo con la placa {vehiculo.Placa} ya se encuentra registrado";
-
             }
             catch (Exception exception)
             {
-
                 return "Se presentó el siguiente error:" + exception.Message;
             }
             finally
@@ -51,11 +48,9 @@ namespace BLL
                     return vehiculo.AplicaConvenio;
                 }
                 return "Sin datos";
-
             }
             catch (Exception exception)
             {
-
                 return "Se presentó el siguiente error:" + exception.Message;
             }
             finally
@@ -79,7 +74,6 @@ namespace BLL
             {
                 connectionManager.Close();
             }
-
         }
 
         public class ConsultaResponse
@@ -117,7 +111,6 @@ namespace BLL
                 busquedaReponse = new BusquedaReponse(vehiculoRepository.BuscarPorPlaca(placa));
                 if (busquedaReponse.Vehiculo == null)
                 {
-
                     return busquedaReponse = new BusquedaReponse("No se encontraron resultados");
                 }
                 else
@@ -152,8 +145,6 @@ namespace BLL
                 Mensaje = mensaje;
                 Error = true;
             }
-
         }
-
     }
 }

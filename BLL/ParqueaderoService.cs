@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using DAL;
 using Entity;
 
@@ -22,23 +19,18 @@ namespace BLL
             try
             {
                 connectionManager.Open();
-                    parqueaderoRepository.Guardar(EspacioTotal,EspacioDisponible);
-
+                parqueaderoRepository.Guardar(EspacioTotal,EspacioDisponible);
                 return $"Registro Satisfactorio";
-
             }
             catch (Exception exception)
             {
-
                 return "Se presentó el siguiente error:" + exception.Message;
             }
             finally
             {
                 connectionManager.Close();
             }
-
         }
-
 
         public ConsultaResponse Consultar()
         {
@@ -55,7 +47,6 @@ namespace BLL
             {
                 connectionManager.Close();
             }
-
         }
 
         public class ConsultaResponse
@@ -75,22 +66,18 @@ namespace BLL
                 Mensaje = mensaje;
                 Error = true;
             }
-
         }
 
         public string Modificar(int EspacioTotal, int EspacioDisponible,int total)
         {
-
             try
             {
                 connectionManager.Open();
-                    parqueaderoRepository.Modificar(EspacioTotal,EspacioDisponible,total);
-                    return $"Se Modificó correctamente";
-
+                parqueaderoRepository.Modificar(EspacioTotal,EspacioDisponible,total);
+                return $"Se Modificó correctamente";
             }
             catch (Exception exception)
             {
-
                 return "Se presentó el siguiente error:" + exception.Message;
             }
             finally
